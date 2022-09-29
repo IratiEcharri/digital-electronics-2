@@ -5,17 +5,63 @@
 1. Listing of C code which repeats one "dot" and one "comma" (BTW, in Morse code it is letter `A`) on a LED. Always use syntax highlighting, meaningful comments, and follow C guidelines:
 
 ```c
+/* Defines -----------------------------------------------------------*/
+#define LED_GREEN PB5   // PB5 is AVR pin where green on-board LED 
+                        // is connected
+#define SHORT_DELAY 250 // Delay for writing the dot
+#define LONG_DELAY 750  // Delay for writing the dash
+#ifndef F_CPU
+# define F_CPU 16000000 // CPU frequency in Hz required for delay funcs
+#endif
+
+/* Includes ----------------------------------------------------------*/
+#include <avr/io.h>     // AVR device-specific IO definitions
+#include <util/delay.h> // Functions for busy-wait delay loops
+
+
+// -----
+// This part is needed to use Arduino functions but also physical pin
+// names. We are using Arduino-style just to simplify the first lab.
+#include "Arduino.h"
+#define PB5 13          // In Arduino world, PB5 is called "13"
+//-----
+
+
+/* Function definitions ----------------------------------------------*/
+/**********************************************************************
+ * Function: Main function where the program execution begins
+ * Purpose:  Toggle one LED and use delay library.
+ * Returns:  none
+ **********************************************************************/
 int main(void)
 {
     // Set pin where on-board LED is connected as output
     pinMode(LED_GREEN, OUTPUT);
+    uint8_t led_value = LOW;  // Local variable to keep LED status
+
 
     // Infinite loop
     while (1)
     {
         // Generate a lettre `A` Morse code
-
         // WRITE YOUR CODE HERE
+        // The first dot; turn the led on for a short time
+        led_value = HIGH; 
+        digitalWrite(LED_GREEN, led_value);
+        _delay_ms(SHORT_DELAY);
+        // Turn the led off for a short time
+        led_value = LOW;
+        digitalWrite(LED_GREEN, led_value);
+        _delay_ms(SHORT_DELAY);
+        // The dash, turn the led on for a long time
+        led_value = HIGH; 
+        digitalWrite(LED_GREEN, led_value);
+        _delay_ms(LONG_DELAY);
+        // Turn the led off again for a long delay for the loop to start again
+        led_value = LOW;
+        digitalWrite(LED_GREEN, led_value);
+        _delay_ms(LONG_DELAY);
+        
 
     }
 
