@@ -38,8 +38,8 @@
    #define TIM2_overflow_16ms()   TCCR2B |= (1<<CS22) | (1<<CS21) | (1<<CS20);
 
    /** @brief Enable overflow interrupt, 1 --> enable */
-   #define TIM1_overflow_interrupt_enable()  TIMSK1 |= (1<<TOIE1);
+   #define TIM2_overflow_interrupt_enable()  TIMSK2 |= (1<<TOIE2);
    /** @brief Disable overflow interrupt, 0 --> disable */
-   #define TIM1_overflow_interrupt_disable() TIMSK1 &= ~(1<<TOIE1);
+   #define TIM2_overflow_interrupt_disable() TIMSK2 &= ~(1<<TOIE2);
 
 
