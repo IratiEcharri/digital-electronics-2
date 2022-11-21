@@ -6,10 +6,10 @@
 
    | **Instruction** | **Binary opcode** | **Hex opcode** | **Compiler Hex opcode** |
    | :-- | :-: | :-: | :-: |
-   | `add r24, r0` |  | 0d80 |  |
+   | `add r24, r0` | 0000_1101_1000_0000 | 0d80 |  |
    | `com r26` |  |  |  |
    | `eor r26, r27` |  |  |  |
-   | `mul r22, r20` |  |  |  |
+   | `mul r22, r20` | 1001_1111_0110_0100 | 9f64 |  |
    | `ret` | `1001_0101_0000_1000` | `95 08` |  |
 
 ### 4-bit LFSR
