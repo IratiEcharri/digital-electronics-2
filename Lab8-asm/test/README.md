@@ -21,9 +21,10 @@
    | 4, 3 | 0 1 3 7 15 30 29 27 23 14 28 25 19 6 13 26 21 10 20 8 16 0 | 21 |
    | 4, 2 | 0 1 3 7 14 28 25 18 4 8 17 2 5 10 21 11 23 15 30 29 27 22 13 26 20 9 19 6 12 24 16 0 | 31 |
    | 4, 1 | 0 1 3 6 12 25 18 5 11 22 13 27 23 15 30 29 26 21 10 20 8 17 2 4 9 19 7 14 28 24 16 0 | 31 |
+https://github.com/IratiEcharri/digital-electronics-2/blob/main/Lab8-asm/Lab8HW2.xlsx
 
 ### Variable number of short pulses
 
 3. Draw a flowchart of function `void burst_c(uint8_t number)` which generates a variable number of short pulses at output pin. Let the pulse width be the shortest one. The image can be drawn on a computer or by hand. Use clear descriptions of the individual steps of the algorithms.
 
-   ![your figure]()
+   ![your figure](https://github.com/IratiEcharri/digital-electronics-2/blob/main/Lab8-asm/Lab8HW.jpg)
