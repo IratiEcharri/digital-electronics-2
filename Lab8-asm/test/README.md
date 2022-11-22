@@ -6,7 +6,7 @@
 
    | **Instruction** | **Binary opcode** | **Hex opcode** | **Compiler Hex opcode** |
    | :-- | :-: | :-: | :-: |
-   | `add r24, r0` | 0000_1101_1000_0000 | 0d80 | monitor does not work in my computer so i am not able to fill this part |
+   | `add r24, r0` | 0000_1101_1000_0000 | 0d80 | monitor does not work on my computer so i am not able to fill this part |
    | `com r26` | 1001_0101_1010_0000 | 95a0 |  |
    | `eor r26, r27` | 0010_0111_1010_1011 | 27ab |  |
    | `mul r22, r20` | 1001_1111_0110_0100 | 9f64 |  |
