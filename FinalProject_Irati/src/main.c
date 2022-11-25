@@ -50,3 +50,50 @@ itoa(Charactervalue, string, 10);  // Convert decimal value to string
         lcd_gotoxy(7, 0);
         lcd_puts(string);
 }
+
+//JOSTICK
+/*Defines*/
+#define Xvalue PB //arduino pin 
+#define Yvalue PB //arduino pin
+#define JSpushbutton PB //arduino pin
+
+/*Variables*/
+int Xposition = 0;
+int Yposition = 0;
+int SW = 0;
+
+
+//main
+//define pins as inputs
+GPIO_mode_input_pullup(&DDRB, Xvalue);
+GPIO_mode_input_pullup(&DDRB, Yvalue);
+GPIO_mode_input_pullup(&DDRB, JSpushbutton);
+
+//read values from pins
+Xposition = GPIO_read(&DDRB, Xvalue);
+Yposition = GPIO_read(&DDRB, Yvalue);
+SW = GPIO_read(&DDRB, JSpushbutton);
+
+//convert values into string
+char stringX[4];
+char stringY[4];
+
+itoa(Xvalue, string, 10);
+    if (Xvalue <= 255){
+      lcd_gotoxy(8,1); //X goes down 1 position
+      lcd_puts("      ");
+      lcd_gotoxy(8,1);
+      lcd_puts("Right");
+    }
+    elseif (Xvalue >=767){
+      //X goes up 1 position
+    }
+    elseif (255 < Xvalue < 767){
+      if( Yvalue < 255){
+        //y goes left one position
+      }
+      elseif( Yvalue > 767){
+        //y goes right one position
+      }
+    }
+
