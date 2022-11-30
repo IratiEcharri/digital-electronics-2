@@ -9,54 +9,121 @@
 #include "timer.h"          // Timer library for AVR-GCC
 #include <lcd.h>            // Peter Fleury's LCD library
 #include <stdlib.h>         // C library. Needed for number conversions
+
 /* Defines */
- #define OutputA  PB2 //arduino pin of A output 
- #define OutputB PB3 //arduino pin of B output
- #define EncPushbutton PB //arduino pin of encoder's pushbutton
 
-/*Declaration of variables */
-int Charactervalue = 3; //variable that will store amount of characters to display
-int Astate; //Variable to store current value of A input
-int A_last_state; //variable to store previous value of A input
-int Bstate; //variable to store current value of B input
-int Encpush=0; //variable to see if encoder's pushbutton has been pressed
+    /* Rotary Encoder */
+    #define OutputA PB2 //arduino pin of A output and CLK
+    #define OutputB PB3 //arduino pin of B output and DT
+    #define EncPushbutton PB13 //arduino pin of encoder's pushbutton
 
+    /* Joystick */
+    //#define VRx PC5 //arduino pin 
+    //#define VRy PC4 //arduino pin
+    #define JSpushbutton PB12 //arduino pin
+
+/*Variables*/
+
+    /* LCD */
+    int numberXposition= 8; // Variables for game instructions (LCD)
+
+    /* Rotary Encoder */
+
+    int Charactervalue = 3; //variable that will store amount of characters to display
+    int Astate; //Variable to store current value of A input
+    int A_last_state; //variable to store previous value of A input
+    int Bstate; //variable to store current value of B input
+    int Encpush=0; //variable to see if encoder's pushbutton has been pressed
+
+    /* Joystick */
+    int Xposition = 0;
+    int Yposition = 0;
+    int SW = 0;
+
+    int x=0; //X position of our letter in LCD
+    int y=0; // y position of our letter in LCD
+
+
+/* **************************************************************************************************************************************/
+
+/* Main function */
 
 int main (void){
-//include gpio library from previous labs (lab2 eg)
+
+// Display game instructions
+lcd_init(LCD_DISP_ON);
+lcd_gotoxy(1, 0);
+lcd_puts("Using encoder");
+lcd_gotoxy(1, 1);
+lcd_puts("choose Qty.:");
+
+
+/* ******************************************************************************************************************************** */
+/* Part 1: ROTARY ENCODER*/
+
+
 //Set the OutputA, OutputB and EncPushbutton values as inputs
 GPIO_mode_input_pullup(&DDRB, OutputA);
 GPIO_mode_input_pullup(&DDRB, OutputB);
 GPIO_mode_input_pullup(&DDRB, EncPushbutton);
-
 
 A_last_state = GPIO_read(&DDRB, OutputA); // read initial value of outputA
 
 while(Encpush==0){
 Astate = GPIO_read(&DDRB, OutputA); //read current value of outputA
 //if previous state of A different from current one pulse has occurred
-if(Astate != A_last_state){
-  Bstate = GPIO_read (&DDRB, OutputB);
-  
-  if(Bstate != Astate){
-    Charactervalue ++;
-  }
-  else{
-    Charactervalue --;
-  }
-}
-A_last_state = Astate;
-lcd_init(LCD_DISP_ON);
+    if(Astate != A_last_state){
+        Bstate = GPIO_read (&DDRB, OutputB);
+        if(Bstate != Astate){
+
+            if(charactervaluec<7){
+                Charactervalue++;
+            }
+        }
+        else{
+            if(charactervalue>3){
+                Charactervalue--;
+            }  
+        }
+    }
+    A_last_state = Astate;
+
+
 char string[2];
 itoa(Charactervalue, string, 10);  // Convert decimal value to string
-        
-        lcd_gotoxy(7, 0);
-        lcd_puts(string);
+
+lcd_init(LCD_DISP_ON);// put on the LCD            
+lcd_gotoxy(15, 1);
+lcd_puts(string);
 
 Encpush = GPIO_read(&DDRB, EncPushbutton);
 }
 
+// clear Lcd screen
+        lcd_gotoxy(1, 0);
+        lcd_puts("               ");
+        lcd_gotoxy(1, 1);
+        lcd_puts("               ");
+
+// start of the game
+
+        lcd_gotoxy(1, 0);
+        lcd_puts("Order: ");
+        for (int_t i = 0; i < Charactervalue; i++) {
+            
+            lcd_gotoxy(numberXposition, 0);
+            lcd_puts(i);
+            numberXposition++;
+        }
+        numberXposition=8;
+        
 //charactervalue is already set
+
+
+/* ******************************************************************************************************************************* */
+
+/*PART 2: JOYSTICK*/
+
 //display characters and start moving them with joystick
 
 // Configure Analog-to-Digital Convertion unit
@@ -95,65 +162,90 @@ Encpush = GPIO_read(&DDRB, EncPushbutton);
 ISR(TIMER1_OVF_vect)
 {
     // make conversion every 100ms
-    //static uint8_t no_of_overflows = 0;
-    //no_of_overflows++;
-    //if (no_of_overflows >= 3)
-    //{
-        // Do this every 3 x 33 ms = 100 ms
-       // no_of_overflows = 0;
-    // Start ADC conversion
-    ADCSRA = ADCSRA | (1<<ADSC);
-    //}
+    static uint8_t no_of_overflows = 0;
+    no_of_overflows++;
+    
+        if (no_of_overflows >= 3){ // Do this every 3 x 33 ms = 100 ms
+            
+            no_of_overflows = 0;
+            ADCSRA = ADCSRA | (1<<ADSC); // Start ADC conversion
+        }
 }
 
-
 ISR(ADC_vect){
-//JOSTICK
-/*Defines*/
-#define VRx PB //arduino pin 
-#define VRy PB //arduino pin
-#define JSpushbutton PB //arduino pin
 
-/*Variables*/
-int Xposition = 0;
-int Yposition = 0;
-int SW = 0;
+static uint8_t case=0; // case=0: reading value from ADC0=X, case=1: reading value from ADC1=Y
 
+if(case==0){
+    ADMUX = ADMUX & ~ ( 1<<MUX0); // hemen iual 0 daonez 1 ea invertitzeu aurreneko aldin asike KONTUZ!!!!!!!!!!!!!!!!
+    case++;
+    Xposition= ADC;
+}
+else{
+    ADMUX = ADMUX | ( 1<<MUX0);
+    case--;
+    Yposition= ADC;
+
+}
 
 //main
 //define pins as inputs
-GPIO_mode_input_pullup(&DDRB, VRx);
-GPIO_mode_input_pullup(&DDRB, VRy);
-GPIO_mode_input_pullup(&DDRB, JSpushbutton);
+//GPIO_mode_input_pullup(&DDRB, VRx);
+//GPIO_mode_input_pullup(&DDRB, VRy);
+//GPIO_mode_input_pullup(&DDRB, JSpushbutton);
 
 while(SW == 0){
-//read values from pins
-Xposition = GPIO_read(&DDRB, VRx);
-Yposition = GPIO_read(&DDRB, VRy);
-SW = GPIO_read(&DDRB, JSpushbutton);
+    //read values from pins
+    //Xposition = GPIO_read(&DDRB, VRx);
+    //Yposition = GPIO_read(&DDRB, VRy);
+    SW = GPIO_read(&DDRB, JSpushbutton);
 
-//convert values into string
-char stringX[4];
-char stringY[4];
+    //convert values into string
+    char stringX[4];
+    char stringY[4];
 
-itoa(Xvalue, string, 10);
-    if (Xvalue <= 255){
-      lcd_gotoxy(8,1); //X goes down 1 position
-      lcd_puts("      ");
-      lcd_gotoxy(8,1);
-      lcd_puts("Right");
-    }
-    elseif (Xvalue >=767){
-      //X goes up 1 position
-    }
-    elseif (255 < Xvalue < 767){
-      if( Yvalue < 255){
-        //y goes left one position
-      }
-      elseif( Yvalue > 767){
-        //y goes right one position
-      }
+    for (int i = 0; i < Charactervalue; i++){
+
+        itoa( Xposition, stringX, 10);
+
+        if (Xposition <= 255){ //X goes left 1 position
+            
+            lcd_gotoxy(x,y); 
+            lcd_puts(" ");
+            if(x>0){
+                x--;
+            }
+        
+        }
+        elseif (Xposition >=767){ //X goes right 1 position
+
+            lcd_gotoxy(x,y); 
+            lcd_puts(" ");
+            if(x<15){
+                x++;
+            }
+        }
+        elseif (255 < Xposition < 767){
+        
+            itoa( Yposition, stringY, 10);
+
+                if( Yposition < 255){ //y goes down one position
+                    lcd_gotoxy(x,y); 
+                    lcd_puts(" ");
+                    if(y==0){
+                        y++;
+                    }
+                }
+                elseif( Yposition > 767){  //y goes up one position
+                    lcd_gotoxy(x,y); 
+                    lcd_puts(" ");
+                    if(y==1){
+                        y--;
+                        }
+                    }
+        }
+        lcd_gotoxy(x,y);
+        lcd_puts(i);
     }
 }
 }
-
