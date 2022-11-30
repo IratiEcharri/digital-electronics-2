@@ -15,12 +15,12 @@
     /* Rotary Encoder */
     #define OutputA PB2 //arduino pin of A output and CLK
     #define OutputB PB3 //arduino pin of B output and DT
-    #define EncPushbutton PB13 //arduino pin of encoder's pushbutton
+    #define EncPushbutton PB5 //arduino pin of encoder's pushbutton
 
     /* Joystick */
     //#define VRx PC5 //arduino pin 
     //#define VRy PC4 //arduino pin
-    #define JSpushbutton PB12 //arduino pin
+    #define JSpushbutton PB4 //arduino pin
 
 /*Variables*/
 
@@ -76,12 +76,12 @@ Astate = GPIO_read(&DDRB, OutputA); //read current value of outputA
         Bstate = GPIO_read (&DDRB, OutputB);
         if(Bstate != Astate){
 
-            if(charactervaluec<7){
+            if(Charactervalue<7){
                 Charactervalue++;
             }
         }
         else{
-            if(charactervalue>3){
+            if(Charactervalue>3){
                 Charactervalue--;
             }  
         }
@@ -109,7 +109,7 @@ Encpush = GPIO_read(&DDRB, EncPushbutton);
 
         lcd_gotoxy(1, 0);
         lcd_puts("Order: ");
-        for (int_t i = 0; i < Charactervalue; i++) {
+        for (uint8_t i = 0; i < Charactervalue; i++) {
             
             lcd_gotoxy(numberXposition, 0);
             lcd_puts(i);
@@ -174,16 +174,16 @@ ISR(TIMER1_OVF_vect)
 
 ISR(ADC_vect){
 
-static uint8_t case=0; // case=0: reading value from ADC0=X, case=1: reading value from ADC1=Y
+static uint8_t value=0; // case=0: reading value from ADC0=X, case=1: reading value from ADC1=Y
 
-if(case==0){
+if(value==0){
     ADMUX = ADMUX & ~ ( 1<<MUX0); // hemen iual 0 daonez 1 ea invertitzeu aurreneko aldin asike KONTUZ!!!!!!!!!!!!!!!!
-    case++;
+    value++;
     Xposition= ADC;
 }
 else{
     ADMUX = ADMUX | ( 1<<MUX0);
-    case--;
+    value--;
     Yposition= ADC;
 
 }
