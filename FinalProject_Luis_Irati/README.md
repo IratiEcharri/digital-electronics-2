@@ -13,3 +13,4 @@
 - [Example code 1](https://lastminuteengineers.com/rotary-encoder-arduino-tutorial/).
 - [Example code 2](https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/).
 ## LCD
+- [LCD schematic](https://projects.digilentinc.com/56004/using-the-pmod-clp-with-arduino-uno-95c040).
