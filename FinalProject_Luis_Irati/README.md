@@ -2,8 +2,8 @@
 # HARDWARE DESCRIPTION
 # SOFTWARE DESCRIPTION
 ## Main program flowchart
-![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Main%20flowchart.png)
-![Timer overflow flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Timer%20overflow%20flowchart.png)
+- ![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Main%20flowchart.png)
+- ![Timer overflow flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Timer%20overflow%20flowchart.png)
 # VIDEO
 # REFERENCES
 ## Joystick
