@@ -1,6 +1,8 @@
 # TEAM MEMBERS
 # HARDWARE DESCRIPTION
 # SOFTWARE DESCRIPTION
+## Main program flowchart
+![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Main%20flowchart.pdf)
 # VIDEO
 # REFERENCES
 ## Joystick
