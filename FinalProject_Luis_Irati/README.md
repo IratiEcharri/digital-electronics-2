@@ -86,6 +86,11 @@ The main defined funtions are:
 - lcd_putc( char c): Display character at current cursor position. ( we haveen't use it)
 - lcd_puts(	const char * s): Display string without auto linefeed.
 
+Links to LCD library files:
+- [lcd.c](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/lib/lcd/lcd.c).
+- [lcd.h](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/lib/lcd/lcd.h).
+- [lcd_definitions.h](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/lib/lcd/lcd_definitions.h).
+
 #### GPIO library
 
 The GPIO library defines the following functions:
@@ -97,7 +102,13 @@ In our project, the following functions were used:
 - GPIO_mode_input_pullup(): To set encoder's port signals as input.
 - GPIO_read (): To read digital values from encoder's ports.
 
+Links to GPIO library files:
+- [gpio.c](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/lib/gpio/gpio.c).
+- [gpio.h](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/lib/gpio/gpio.h).
+
 ### Source file
+
+
 
 # VIDEO
 
