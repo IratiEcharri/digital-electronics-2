@@ -48,7 +48,23 @@ The rotary encoder has five ports: CLK, DT, SW, +, GND
 ![Timer overflow flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Timer%20overflow%20flowchart.png)
 ## ADC vector flowchart
 ![ADC vector flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/ADC%20vector%20flowchart.png)
+## Project Files
+
+The project has the following structure:
+
+![Project structure]()
+
+### Source file
+
+
+
+### Library files
+
+For clarity and efficiency of the code, apart from the source file, 
+
 # VIDEO
+
+
 # REFERENCES
 ## Joystick
 - [Joystick connection](https://components101.com/modules/joystick-module).
