@@ -1,5 +1,13 @@
 # TEAM MEMBERS
 # HARDWARE DESCRIPTION
+## Joystick connections
+The joystick has five ports GND, 5V, VRx, VRy and SW
+- GND is connected to ground node
+- 5V is connected to Vcc node
+- VRx is an analog input that gives voltage proportional to X axis
+- VRy is an analog input that gives voltage proportional to Y axis
+- SW is the digital output of the pushbutton
+![Joystick](https://components101.com/sites/default/files/component_pin/Joystick-Module-Pinout.png)
 # SOFTWARE DESCRIPTION
 ## Main program flowchart
 ![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Main%20flowchart.png)
