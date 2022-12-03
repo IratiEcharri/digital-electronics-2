@@ -108,8 +108,17 @@ Links to GPIO library files:
 
 ### Source file
 
+The main parts of our Source file are:
 
-
+    i. Include libraries 
+   ii. Define variables
+  iii. Main function: int main (void)
+   iV. Interrupt routines: TIMER_OVF_vect and ADC_vect
+   
+ More descriptive text of the source file can be found in the source code, most of the stepts are commented.
+ 
+ Link to the source file: [src.c](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/src/main.c).
+ 
 # VIDEO
 
 
