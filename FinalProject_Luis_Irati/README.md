@@ -52,7 +52,18 @@ The rotary encoder has five ports: CLK, DT, SW, +, GND
 
 The project has the following structure:
 
-![Project structure]()
+├── include
+│   └── timer.h
+├── lib
+│   └── lcd
+│   │   ├── lcd.c
+│   │   ├── lcd.h
+│   │   └── lcd_definitions.h
+│   └── gpio
+|       ├── gpio.c
+|       └── gpio.h
+└── src
+    └── main.c
 
 ### Source file
 
