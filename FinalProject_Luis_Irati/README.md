@@ -1,5 +1,11 @@
 # TEAM MEMBERS
 # HARDWARE DESCRIPTION
+## Digilent PmodCLP LCD module connections
+PmodCLP LCD module a 16×2 character LCD module that uses a 8-bit parallel data interface. The PmodCLP utilizes a Samsung KS0066 LCD controller to display information to a Sunlike LCD panel. This is its pinout description table:
+![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/LCD.PNG)
+In our case, we have interfaced our LCD in 4-bit mode. We heve used nine pins: 4 data bits (DB4, DB5, DB6, DB7), GND, VCC, RS, R/W, E
+
+![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/4bit%20mode.PNG)
 ## Joystick connections
 The joystick has five ports: GND, 5V, VRx, VRy and SW
 - GND is connected to ground node
