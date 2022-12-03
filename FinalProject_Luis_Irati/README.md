@@ -67,13 +67,37 @@ The project has the following structure:
     └── main.c
 ```
 
-### Source file
-
-
 
 ### Library files
 
-For clarity and efficiency of the code, apart from the source file, 
+For clarity and efficiency of the code, apart from the source file, we have used GPIO and LCD libraries, were user defined functions can be found written by other programmers. In a library we can find two parts:
+
+- Function prototype or Function declaration (*.h file)
+- Function definition (*.c file)
+
+#### LCD library
+
+We used LCD library for HD44780 based LCDs, developed by Peter Fleury.
+
+The main defined funtions are:
+
+- lcd_init(type of cursor): Initialize display and select type of cursor: in our case LCD_DISP_ON (display on, cursor off)
+- lcd_gotoxy(uint8_t x, uint8_t y): Set cursor to specified position ( horizontal position (x) and vertical position (y)
+- lcd_putc( char c): Display character at current cursor position. ( we haveen't use it)
+- lcd_puts(	const char * s): Display string without auto linefeed.
+
+#### GPIO library
+
+The GPIO library defines the following functions:
+
+![GPIO library](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/GPIO%20library.PNG)
+
+In our project, the following functions were used:
+
+- GPIO_mode_input_pullup(): To set encoder's port signals as input.
+- GPIO_read (): To read digital values from encoder's ports.
+
+### Source file
 
 # VIDEO
 
