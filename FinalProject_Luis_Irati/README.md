@@ -110,10 +110,10 @@ Links to GPIO library files:
 
 The main parts of our Source file are:
 
-    i. Include libraries 
-   ii. Define variables
-  iii. Main function: int main (void)
-   iV. Interrupt routines: TIMER_OVF_vect and ADC_vect
+1. Include libraries 
+2. Define variables
+3. Main function: int main (void)
+4. Interrupt routines: TIMER_OVF_vect and ADC_vect
    
  More descriptive text of the source file can be found in the source code, most of the stepts are commented.
  
