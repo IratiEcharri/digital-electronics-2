@@ -115,7 +115,7 @@ The main parts of our Source file are:
 3. Main function: int main (void)
 4. Interrupt routines: TIMER_OVF_vect and ADC_vect
    
- More descriptive text of the source file can be found in the source code, most of the stepts are commented.
+ More descriptive text of the source file can be find in the source code, where most of the steps are commented.
  
  Link to the source file: [src.c](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/src/main.c).
  
