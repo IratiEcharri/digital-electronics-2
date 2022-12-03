@@ -6,7 +6,17 @@ PmodCLP LCD module a 16×2 character LCD module that uses a 8-bit parallel data 
 
 ![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/LCD.PNG)
 
-In our case, we have interfaced our LCD in 4-bit mode. We heve used nine pins: 4 data bits (DB4, DB5, DB6, DB7), GND, VCC, RS, R/W, E
+In our case, we have interfaced our LCD in 4-bit mode. We heve used nine ports: 4 data bits (DB4, DB5, DB6, DB7), GND, VCC, RS, R/W and E
+
+- DB4: data bit 4, connected to digital port PD4
+- DB5: data bit 5, connected to digital port PD5
+- DB6: data bit 6, connected to digital port PD6
+- DB7: data bit 7, connected to digital port PD7
+- GND: connected to ground node
+- VCC: connected to VCC node
+- RS: Register Select (High for Data Transfer, Low for Instruction Transfer), connected to digital port PB0
+- R/W: Read/Write signal ( High or Read mode, Low for Write mode), connected to GND.
+- E: Read/Write Enable (High for Read, falling edge writes data) connected to PB1
 
 ![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/4bit%20mode.PNG)
 ## Joystick connections
