@@ -2,7 +2,7 @@
 # HARDWARE DESCRIPTION
 ## General schematic
 
-In the schematic below are shown needed conections in order to implement an Analog joy-stick, rotary encoder, Digilent PmodCLP LCD module and Arduino Uno michrocontroller:
+In the schematic below are shown needed conections in order to implement an Analog joy-stick, a rotary encoder, a Digilent PmodCLP LCD module and an Arduino Uno michrocontroller:
 
 ![General Schematic](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Scheme%201.png) 
 
