@@ -132,8 +132,7 @@ The main parts of our Source file are:
 # VIDEO
 
 A general explanation, the functionality and two simulations of our program are shown in the video below.
-[![Watch the video](![image](https://user-images.githubusercontent.com/114082159/205521267-9948ef2a-767f-47bc-bdd9-23d6c042ad47.png)]
-)(https://youtu.be/h7OlzBp_UPY)
+[![Watch the video](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/Portada.PNG)](https://youtu.be/h7OlzBp_UPY)
 
 
 
