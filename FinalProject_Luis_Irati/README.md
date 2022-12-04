@@ -29,17 +29,17 @@ In our case, we have interfaced our LCD in 4-bit mode. We heve used nine ports: 
 The joystick has five ports: GND, 5V, VRx, VRy and SW
 - GND is connected to ground node
 - 5V is connected to Vcc node
-- VRx is an analog output that gives voltage proportional to X axis
-- VRy is an analog output that gives voltage proportional to Y axis
-- SW is the digital output of the pushbutton
+- VRx is an analog output that gives voltage proportional to X axis, connected to analog port PC0
+- VRy is an analog output that gives voltage proportional to Y axis, connected to analog port PC1
+- SW is the digital output of the pushbutton, connected to digital port PB4
 - ![Joystick](https://components101.com/sites/default/files/component_pin/Joystick-Module-Pinout.png)
 ## Rotary encoder connections
 The rotary encoder has five ports: CLK, DT, SW, +, GND
 - GND is connected to ground node
 - + is connected to Vcc node
-- CLK gives digital value of A output
-- DT gives digital value of B output
-- SW gives digital value of pushbutton
+- CLK gives digital value of A output, connected to digital port PB2
+- DT gives digital value of B output, connected to digital port PB3
+- SW gives digital value of pushbutton, connected to digital port PB5
 - ![Rotary encoder](https://components101.com/sites/default/files/component_pin/KY-04-Rotary-Encoder-Pinout.jpg)
 # SOFTWARE DESCRIPTION
 ## Main program flowchart
@@ -70,7 +70,7 @@ The project has the following structure:
 
 ### Library files
 
-For clarity and efficiency of the code, apart from the source file, we have used GPIO and LCD libraries, were user defined functions can be found written by other programmers. In a library we can find two parts:
+For clarity and efficiency of the code, apart from the source file, we have used GPIO and LCD libraries, where user defined functions can be found written by other programmers. In a library we can find two parts:
 
 - Function prototype or Function declaration (*.h file)
 - Function definition (*.c file)
@@ -115,7 +115,7 @@ The main parts of our Source file are:
 3. Main function: int main (void)
 4. Interrupt routines: TIMER_OVF_vect and ADC_vect
    
- More descriptive text of the source file can be find in the source code, where most of the steps are commented.
+ More descriptive texts of the source file can be found in the source code, where most of the steps are commented.
  
  Link to the source file: [src.c](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/src/main.c).
  
