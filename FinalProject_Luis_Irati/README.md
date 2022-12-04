@@ -1,4 +1,14 @@
 # TEAM MEMBERS
+## Luis Izaguirre Imaz
+- Write ISR (ADC_vect)
+- Write ISR (Timer_ovf) together with Irati
+- Created main schematic of application
+- Edit application's video
+## Irati Echarri Legarra
+- Write main loop of the program
+- Write ISR(Timer_ovf) together with Luis
+- Created main loop's flowchart
+- Created timer overflow's flowchart
 # HARDWARE DESCRIPTION
 ## General schematic
 
