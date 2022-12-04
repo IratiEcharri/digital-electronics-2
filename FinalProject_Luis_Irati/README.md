@@ -131,6 +131,11 @@ The main parts of our Source file are:
  
 # VIDEO
 
+A general explanation, the functionality and two simulations of our program are shown in the video below.
+[![Watch the video](https://youtu.be/h7OlzBp_UPY)
+
+
+
 
 # REFERENCES
 ## Joystick
