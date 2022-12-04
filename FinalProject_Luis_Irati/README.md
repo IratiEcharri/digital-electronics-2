@@ -4,13 +4,13 @@
 
 In the schematic below are shown needed conections in order to implement an Analog joy-stick, a rotary encoder, a Digilent PmodCLP LCD module and an Arduino Uno michrocontroller:
 
-![General Schematic](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Scheme%201.png) 
+![General Schematic](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/Scheme%201.png) 
 
 ## Digilent PmodCLP LCD module connections
 
 PmodCLP LCD module is a 16×2 character LCD module that uses a 8-bit parallel data interface. The PmodCLP utilizes a Samsung KS0066 LCD controller to display information to a Sunlike LCD panel. This is its pinout description table:
 
-![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/LCD.PNG)
+![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/LCD.PNG)
 
 In our case, we have interfaced our LCD in 4-bit mode. We heve used nine ports: 4 data bits (DB4, DB5, DB6, DB7), GND, VCC, RS, R/W and E
 
@@ -24,7 +24,7 @@ In our case, we have interfaced our LCD in 4-bit mode. We heve used nine ports: 
 - R/W: Read/Write signal ( High or Read mode, Low for Write mode), connected to GND.
 - E: Read/Write Enable (High for Read, falling edge writes data) connected to PB1
 
-![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/4bit%20mode.PNG)
+![PmodCLP LCD](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/4bit%20mode.PNG)
 ## Joystick connections
 The joystick has five ports: GND, 5V, VRx, VRy and SW
 - GND is connected to ground node
@@ -43,11 +43,11 @@ The rotary encoder has five ports: CLK, DT, SW, +, GND
 - ![Rotary encoder](https://components101.com/sites/default/files/component_pin/KY-04-Rotary-Encoder-Pinout.jpg)
 # SOFTWARE DESCRIPTION
 ## Main program flowchart
-![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Main%20flowchart.png)
+![Main flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/Main%20flowchart.png)
 ## Timer overflow flowchart
-![Timer overflow flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/Timer%20overflow%20flowchart.png)
+![Timer overflow flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/Timer%20overflow%20flowchart.png)
 ## ADC vector flowchart
-![ADC vector flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/ADC%20vector%20flowchart.png)
+![ADC vector flowchart](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/ADC%20vector%20flowchart.png)
 ## Project Files
 
 The project has the following structure:
@@ -95,7 +95,7 @@ Links to LCD library files:
 
 The GPIO library defines the following functions:
 
-![GPIO library](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/GPIO%20library.PNG)
+![GPIO library](https://github.com/IratiEcharri/digital-electronics-2/blob/main/FinalProject_Luis_Irati/u_flowchart_schematics/GPIO%20library.PNG)
 
 In our project, the following functions were used:
 
